@@ -5,7 +5,7 @@ export type Photo = {
 };
 
 // THÔNG TIN CẦN ĐỔI: tên, ngày kỷ niệm và ảnh đều có thể sửa tại file này.
-const HER = "Em bé";
+const HER = "Diệu Linh";
 const ME = "Anh";
 
 export const issue = {
