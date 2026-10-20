@@ -14,70 +14,41 @@ const pad = (n: number) => String(n).padStart(2, "0");
 
 type Frame = { ratio: string; ratioLabel: string; place: string; sizes: string };
 
+// Bố cục riêng cho 5 ảnh chân dung (không cần ảnh chụp chung).
 const LAYOUT: Frame[] = [
   {
-    ratio: "aspect-[3/2]",
-    ratioLabel: "3:2",
-    place: "col-span-12 lg:col-span-8 lg:col-start-1",
-    sizes: "(min-width: 1024px) 66vw, 100vw",
-  },
-  {
-    ratio: "aspect-[3/4]",
-    ratioLabel: "3:4",
-    place: "col-span-8 col-start-5 lg:col-span-4 lg:col-start-9 lg:mt-56",
-    sizes: "(min-width: 1024px) 33vw, 66vw",
-  },
-  {
     ratio: "aspect-[4/5]",
     ratioLabel: "4:5",
-    place: "col-span-10 lg:col-span-5 lg:col-start-2",
-    sizes: "(min-width: 1024px) 42vw, 84vw",
-  },
-  {
-    ratio: "aspect-[3/4]",
-    ratioLabel: "3:4",
-    place: "col-span-9 col-start-4 lg:col-span-4 lg:col-start-8 lg:mt-36",
-    sizes: "(min-width: 1024px) 33vw, 75vw",
-  },
-  {
-    ratio: "aspect-[3/4]",
-    ratioLabel: "3:4",
-    place: "col-span-10 lg:col-span-4 lg:col-start-1",
-    sizes: "(min-width: 1024px) 33vw, 84vw",
-  },
-  {
-    ratio: "aspect-[2/3]",
-    ratioLabel: "2:3",
-    place: "col-span-9 col-start-4 lg:col-span-4 lg:col-start-5 lg:mt-28",
-    sizes: "(min-width: 1024px) 33vw, 75vw",
-  },
-  {
-    ratio: "aspect-[2/3]",
-    ratioLabel: "2:3",
-    place: "col-span-10 lg:col-span-4 lg:col-start-9 lg:mt-12",
-    sizes: "(min-width: 1024px) 33vw, 84vw",
-  },
-  {
-    ratio: "aspect-[3/4]",
-    ratioLabel: "3:4",
-    place: "col-span-9 col-start-4 lg:col-span-4 lg:col-start-2 lg:mt-32",
-    sizes: "(min-width: 1024px) 33vw, 75vw",
-  },
-  {
-    ratio: "aspect-[4/5]",
-    ratioLabel: "4:5",
-    place: "col-span-11 lg:col-span-6 lg:col-start-7",
+    place: "col-span-11 lg:col-span-6 lg:col-start-1",
     sizes: "(min-width: 1024px) 50vw, 92vw",
   },
   {
-    ratio: "aspect-[4/3] lg:aspect-[16/9]",
-    ratioLabel: "16:9",
-    place: "col-span-12",
-    sizes: "100vw",
+    ratio: "aspect-[3/4]",
+    ratioLabel: "3:4",
+    place: "col-span-9 col-start-4 lg:col-span-4 lg:col-start-9 lg:mt-40",
+    sizes: "(min-width: 1024px) 33vw, 75vw",
+  },
+  {
+    ratio: "aspect-[3/4]",
+    ratioLabel: "3:4",
+    place: "col-span-9 lg:col-span-5 lg:col-start-2",
+    sizes: "(min-width: 1024px) 42vw, 75vw",
+  },
+  {
+    ratio: "aspect-[4/5]",
+    ratioLabel: "4:5",
+    place: "col-span-10 col-start-3 lg:col-span-5 lg:col-start-8 lg:mt-20",
+    sizes: "(min-width: 1024px) 42vw, 84vw",
+  },
+  {
+    ratio: "aspect-[4/5]",
+    ratioLabel: "4:5",
+    place: "col-span-10 col-start-2 lg:col-span-6 lg:col-start-4",
+    sizes: "(min-width: 1024px) 50vw, 84vw",
   },
 ];
 
-const QUOTE_AFTER = 4;
+const QUOTE_AFTER = 3;
 
 export function Lookbook() {
   const [open, setOpen] = useState<number | null>(null);
@@ -133,7 +104,7 @@ export function Lookbook() {
                     <Photo
                       photo={item.photo}
                       sizes={frame.sizes}
-                      label={`Khoảnh khắc ${no} · ${frame.ratioLabel}`}
+                      label={`Chân dung ${no} · ${frame.ratioLabel}`}
                       hint={`lookbook-${i + 1}.jpg`}
                     />
                   </div>
